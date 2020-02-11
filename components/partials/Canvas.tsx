@@ -37,9 +37,11 @@ const Canvas: React.FC = () => {
   }
   // handle resize
   const handleResize = ({ camera, renderer }: HandleResizeParams) => {
-    camera.aspect = window.innerWidth / window.innerHeight
+    const width = window.innerWidth
+    const height = window.innerHeight
+    camera.aspect = width / height
     camera.updateProjectionMatrix()
-    renderer.setSize(window.innerWidth, window.innerHeight)
+    renderer.setSize(width, height)
   }
   useEffect(() => {
     return () => window.removeEventListener('resize', () => handleResize)
