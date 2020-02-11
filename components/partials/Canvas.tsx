@@ -45,19 +45,21 @@ const Canvas: React.FC = () => {
   
     // init scene
     const scene = new Scene()
-    const camera = new PerspectiveCamera(75, width / height, 0.1, 1000)
-    camera.position.z = 2.0
+    const camera = new PerspectiveCamera(120, width / height, 1.0, 1000)
+    camera.position.z = 800
+    camera.lookAt
     const renderer = new WebGLRenderer({ canvas: canvas, antialias: true })
     renderer.setClearColor('#1d1d1d')
     renderer.setSize(width, height)
 
     const loader = new GLTFLoader()
     let model;
-    loader.load('/', (gltf) => {
+    loader.load('/marcus_aurelius/scene.gltf', (gltf) => {
       model = gltf.scene
       model.name = 'marcus_aurelius'
-      model.scale.set(400.0, 400.0, 400.0)
-      model.position.set(0.0, -400.0, 0.0)
+      model.scale.set(200.0, 200.0, 200.0)
+      model.position.set(0.0, -200.0, 0.0)
+      model.rotation.y = -200
       scene.add(model)
     })
     renderer.gammaFactor = 2.2
@@ -71,6 +73,8 @@ const Canvas: React.FC = () => {
 
     // resize
     window.addEventListener('resize', () => handleResize({ camera, renderer }))
+
+    console.log(scene.children[0])
   }
 
   // animate
@@ -85,6 +89,9 @@ const Canvas: React.FC = () => {
 
   // render
   const render = ({ scene, camera, renderer }: RendererParams) => {
+    // const object = scene.children[0] as any
+    // const time = performance.now() / 1000
+
     renderer.render(scene, camera)
   }
 
