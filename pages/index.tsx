@@ -2,6 +2,7 @@ import React from 'react'
 import Head from 'next/head'
 
 import Layout from '../components/common/Layout'
+import Canvas from '../components/partials/Canvas'
 
 const Home = () => (
   <div>
@@ -11,7 +12,7 @@ const Home = () => (
     </Head>
 
     <Layout>
-      Hi There!
+      <Canvas />
     </Layout>
   </div>
 )
