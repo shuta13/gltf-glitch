@@ -8,6 +8,9 @@ console.log(fragment.default)
 const lena = require('../../public/static/lena_color.png')
 console.log(lena)
 
+const marcus_aurelius = require('../../public/static/gltf/marcus_aurelius/scene.gltf')
+console.log(marcus_aurelius)
+
 const Canvas: React.FC = () => {
   return (
     <div className="CanvasWrap">
