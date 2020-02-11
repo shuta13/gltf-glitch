@@ -1,6 +1,8 @@
 import React from 'react'
 import Head from 'next/head'
 
+import Layout from '../components/common/Layout'
+
 const Home = () => (
   <div>
     <Head>
@@ -8,7 +10,9 @@ const Home = () => (
       <link rel="icon" href="/favicon.ico" />
     </Head>
 
-    Hi There!
+    <Layout>
+      Hi There!
+    </Layout>
   </div>
 )
 
