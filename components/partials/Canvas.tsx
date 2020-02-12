@@ -6,8 +6,6 @@ import {
   DirectionalLight
 } from 'three'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
-import RGBLoader from 'three/examples/jsm/loaders/RGBELoader'
-import { RoughnessMipmapper } from 'three/examples/jsm/utils/RoughnessMipmapper'
 
 import './Canvas.scss'
 
@@ -45,7 +43,7 @@ const Canvas: React.FC = () => {
   
     // init scene
     const scene = new Scene()
-    const camera = new PerspectiveCamera(120, width / height, 1.0, 1000)
+    const camera = new PerspectiveCamera(100, width / height, 1.0, 1000)
     camera.position.z = 800
     camera.lookAt
     const renderer = new WebGLRenderer({ canvas: canvas, antialias: true })
@@ -58,8 +56,7 @@ const Canvas: React.FC = () => {
       model = gltf.scene
       model.name = 'marcus_aurelius'
       model.scale.set(200.0, 200.0, 200.0)
-      model.position.set(0.0, -200.0, 0.0)
-      model.rotation.y = -200
+      model.position.set(0.0, -400.0, 0.0)
       scene.add(model)
     })
     renderer.gammaFactor = 2.2
@@ -90,7 +87,9 @@ const Canvas: React.FC = () => {
   // render
   const render = ({ scene, camera, renderer }: RendererParams) => {
     // const object = scene.children[0] as any
-    // const time = performance.now() / 1000
+    const time = performance.now()
+
+    
 
     renderer.render(scene, camera)
   }
